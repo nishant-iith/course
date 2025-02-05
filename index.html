@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -9,10 +9,15 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
     <!-- Navigation Header -->
-    <div class="main-nav"></div>
+    <div class="main-nav">
         <h1>ConnectEd</h1>
         <p class="subtitle">Your Gateway to Knowledge</p>
     </div>
@@ -65,7 +70,32 @@
     </div>
 
     <footer class="main-footer">
-        <p>© 2024 ConnectEd | <a href="https://github.com/yourusername/connected" target="_blank" rel="noopener">GitHub</a></p>
+        <div class="social-links">
+            <a href="https://github.com/yourusername" target="_blank">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="mailto:your.email@example.com">
+                <i class="fas fa-envelope"></i> Email
+            </a>
+            <a href="https://linkedin.com/in/yourusername" target="_blank">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://twitter.com/yourusername" target="_blank">
+                <i class="fab fa-twitter"></i> Twitter
+            </a>
+        </div>
+        <p>© 2024 ConnectEd | Made with ❤️ by Nishant</p>
     </footer>
+
+    <!-- Add Solution Modal -->
+    <div id="solutionModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div id="solutionContent"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="scripts/app.js"></script>
 </body>
 </html>

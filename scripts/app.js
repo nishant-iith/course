@@ -167,5 +167,33 @@ async function showSolution(solutionPath) {
     }
 }
 
-// Remove JSON-related code and simplify initialization
-document.addEventListener('DOMContentLoaded', loadProblems);
+// Theme switching functionality
+function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    updateThemeIcon(theme);
+}
+
+function updateThemeIcon(theme) {
+    const icon = document.querySelector('#themeToggle i');
+    icon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+}
+
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+}
+
+// Remove duplicate initialization and combine into one
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize theme
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(savedTheme);
+    
+    // Add theme toggle listener
+    document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+    
+    // Load problems
+    loadProblems();
+});

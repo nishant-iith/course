@@ -176,22 +176,53 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Dark mode toggle
 function initTheme() {
-    const theme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', theme);
+    const savedTheme = localStorage.getItem('theme');
+    
+    // Set dark theme as default if no theme is saved
+    if (!savedTheme) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    
     updateThemeIcon();
+
+    // Add smooth transition for theme changes
+    document.documentElement.style.setProperty('transition', 'background-color 0.3s ease, color 0.3s ease');
 }
 
+// Update theme toggle function
 function toggleTheme() {
     const current = document.documentElement.getAttribute('data-theme');
     const next = current === 'light' ? 'dark' : 'light';
+    
     document.documentElement.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);
     updateThemeIcon();
+    
+    // Update Prism theme
+    const prismTheme = next === 'dark' ? 'tomorrow' : 'default';
+    const existingLink = document.querySelector('link[href*="prism-"]');
+    if (existingLink) {
+        existingLink.href = `https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-${prismTheme}.min.css`;
+    }
+    
+    // Reapply syntax highlighting
+    if (typeof Prism !== 'undefined') {
+        Prism.highlightAll();
+    }
 }
 
+// Update theme icon with new emojis and titles
 function updateThemeIcon() {
     const icon = document.getElementById('themeToggle');
-    icon.textContent = document.documentElement.getAttribute('data-theme') === 'light' ? '🌓' : '☀️';
+    if (icon) {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        icon.textContent = isDark ? '🌞' : '🌚';
+        icon.setAttribute('title', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+        icon.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    }
 }
 
 // Enhanced filtering
