@@ -176,19 +176,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Dark mode toggle
 function initTheme() {
-    const savedTheme = localStorage.getItem('theme');
+    // Always default to dark theme if no theme is saved
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
     
-    // Set dark theme as default if no theme is saved
-    if (!savedTheme) {
+    // Force dark theme if system prefers dark
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.documentElement.setAttribute('data-theme', 'dark');
         localStorage.setItem('theme', 'dark');
-    } else {
-        document.documentElement.setAttribute('data-theme', savedTheme);
     }
     
     updateThemeIcon();
-
-    // Add smooth transition for theme changes
     document.documentElement.style.setProperty('transition', 'background-color 0.3s ease, color 0.3s ease');
 }
 
