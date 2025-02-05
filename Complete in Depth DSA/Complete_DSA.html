@@ -15,15 +15,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-python.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-java.min.js"></script>
     <script>
-        // Force dark theme on initial load
-        document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-        
-        // Set Prism dark theme by default
-        const prismLink = document.createElement('link');
-        prismLink.rel = 'stylesheet';
-        prismLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css';
-        document.head.appendChild(prismLink);
+        // Force dark theme and ensure it loads before content
+        (function() {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+            
+            // Safely load Prism dark theme
+            try {
+                const prismLink = document.createElement('link');
+                prismLink.rel = 'stylesheet';
+                prismLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css';
+                prismLink.onerror = () => console.error('Failed to load Prism theme');
+                document.head.appendChild(prismLink);
+            } catch (e) {
+                console.error('Error setting up theme:', e);
+            }
+        })();
     </script>
 </head>
 <body>

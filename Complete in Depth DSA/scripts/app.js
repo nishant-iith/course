@@ -176,50 +176,63 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Dark mode toggle
 function initTheme() {
-    // Always default to dark theme if no theme is saved
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    
-    // Force dark theme if system prefers dark
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    try {
+        // Force dark theme as default
         document.documentElement.setAttribute('data-theme', 'dark');
         localStorage.setItem('theme', 'dark');
+        
+        // Add smooth transition after initial load
+        setTimeout(() => {
+            document.documentElement.style.setProperty('transition', 'background-color 0.3s ease, color 0.3s ease');
+        }, 100);
+        
+        updateThemeIcon();
+    } catch (e) {
+        console.error('Error initializing theme:', e);
     }
-    
-    updateThemeIcon();
-    document.documentElement.style.setProperty('transition', 'background-color 0.3s ease, color 0.3s ease');
 }
 
-// Update theme toggle function
+// Fix: Improve theme toggle reliability
 function toggleTheme() {
-    const current = document.documentElement.getAttribute('data-theme');
-    const next = current === 'light' ? 'dark' : 'light';
-    
-    document.documentElement.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
-    updateThemeIcon();
-    
-    // Update Prism theme
-    const prismTheme = next === 'dark' ? 'tomorrow' : 'default';
-    const existingLink = document.querySelector('link[href*="prism-"]');
-    if (existingLink) {
-        existingLink.href = `https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-${prismTheme}.min.css`;
-    }
-    
-    // Reapply syntax highlighting
-    if (typeof Prism !== 'undefined') {
-        Prism.highlightAll();
+    try {
+        const current = document.documentElement.getAttribute('data-theme');
+        const next = current === 'light' ? 'dark' : 'light';
+        
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        
+        // Update Prism theme safely
+        const prismTheme = next === 'dark' ? 'tomorrow' : 'default';
+        const existingLink = document.querySelector('link[href*="prism-"]');
+        if (existingLink) {
+            const newLink = document.createElement('link');
+            newLink.rel = 'stylesheet';
+            newLink.href = `https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-${prismTheme}.min.css`;
+            newLink.onload = () => {
+                existingLink.remove();
+                Prism.highlightAll();
+            };
+            existingLink.parentNode.insertBefore(newLink, existingLink);
+        }
+        
+        updateThemeIcon();
+    } catch (e) {
+        console.error('Error toggling theme:', e);
     }
 }
 
-// Update theme icon with new emojis and titles
+// Fix: Add error boundary to updateThemeIcon
 function updateThemeIcon() {
-    const icon = document.getElementById('themeToggle');
-    if (icon) {
-        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        icon.textContent = isDark ? '🌞' : '🌚';
-        icon.setAttribute('title', isDark ? 'Switch to light mode' : 'Switch to dark mode');
-        icon.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    try {
+        const icon = document.getElementById('themeToggle');
+        if (icon) {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            icon.textContent = isDark ? '🌞' : '🌚';
+            icon.setAttribute('title', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+            icon.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+        }
+    } catch (e) {
+        console.error('Error updating theme icon:', e);
     }
 }
 
