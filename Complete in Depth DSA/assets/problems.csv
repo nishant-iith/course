@@ -1,0 +1,51 @@
+Topic,Problem Name,Difficulty,Problem Link,Solution Link,Video Link
+Language Basics,CPP Setup,Easy,#,language/cpp-setup.md,https://youtube.com/
+Language Basics,CPP Basics,Easy,#,language/cpp-basics.md,https://youtube.com/
+Language Basics,Java Setup,Easy,#,language/java-setup.md,https://youtube.com/
+Language Basics,Java Basics,Easy,#,language/java-basics.md,https://youtube.com/
+Language Basics,Java OOPs Basic,Easy,#,language/java-oops.md,https://youtube.com/
+Language Basics,CPP STL Basics,Easy,#,language/cpp-stl.md,https://youtube.com/
+Language Basics,CPP STL Containers,Medium,#,language/cpp-containers.md,https://youtube.com/
+Language Basics,Java Collections Framework,Easy,#,language/java-collections.md,https://youtube.com/
+Language Basics,Java Collections Deep Dive,Medium,#,language/java-collections-advanced.md,https://youtube.com/
+Programming Basics,Input Output,Easy,#,basics/input-output.md,https://youtube.com/
+Programming Basics,If Else Adult Teen Problem,Easy,#,basics/if-else-age.md,https://youtube.com/
+Programming Basics,If ElseIf,Easy,#,basics/if-elseif.md,https://youtube.com/
+Programming Basics,Switch Case,Easy,#,basics/switch-case.md,https://youtube.com/switch
+Programming Basics,Time Complexity Analysis,Medium,#,basics/time-complexity.md,https://youtube.com/time-complexity
+Programming Basics,Space Complexity Basics,Medium,#,basics/space-complexity.md,https://youtube.com/space-complexity
+Programming Basics,Big O Notation,Medium,#,basics/big-o.md,https://youtube.com/big-o
+Array Problems,Sum of First Last Element,Easy,#,arrays/sum-first-last.md,https://youtube.com/array-sum
+String Problems,Print Last Character,Easy,#,strings/last-char.md,https://youtube.com/string-last
+Patterns,Print X Pattern,Easy,#,patterns/print-x.md,https://youtube.com/pattern-x
+Logic Building,Basic Square Pattern,Easy,#,patterns/square.md,https://youtube.com/pattern1
+Logic Building,Right Triangle Pattern,Easy,#,patterns/right-triangle.md,https://youtube.com/pattern2
+Logic Building,Left Triangle Pattern,Easy,#,patterns/left-triangle.md,https://youtube.com/pattern3
+Logic Building,Number Triangle,Easy,#,patterns/number-triangle.md,https://youtube.com/pattern4
+Logic Building,Character Pattern,Easy,#,patterns/char-pattern.md,https://youtube.com/pattern5
+Logic Building,Hollow Square,Medium,#,patterns/hollow-square.md,https://youtube.com/pattern6
+Logic Building,Diamond Pattern,Medium,#,patterns/diamond.md,https://youtube.com/pattern7
+Logic Building,Butterfly Pattern,Medium,#,patterns/butterfly.md,https://youtube.com/pattern8
+Logic Building,Number Spiral,Hard,#,patterns/number-spiral.md,https://youtube.com/pattern9
+Logic Building,Pascal Triangle,Hard,#,patterns/pascal.md,https://youtube.com/pattern10
+Logic Building,Zigzag Pattern,Hard,#,patterns/zigzag.md,https://youtube.com/pattern11
+Arrays,Two Sum,Easy,https://leetcode.com/problems/two-sum/,arrays/two-sum.md,https://youtube.com/watch?v=KLlXCFG5TnA
+Arrays,Best Time to Buy and Sell Stock,Easy,https://leetcode.com/problems/best-time-to-buy-and-sell-stock/,arrays/stock.md,https://youtube.com/watch?v=1pkOgXD63yU
+Strings,Longest Substring Without Repeating Characters,Medium,https://leetcode.com/problems/longest-substring-without-repeating-characters/,strings/longest-substring.md,https://youtube.com/watch?v=3IETreEybaA
+Trees,Binary Tree Inorder Traversal,Medium,https://leetcode.com/problems/binary-tree-inorder-traversal/,trees/traversal.md,https://youtube.com/watch?v=5LUXSvjmGCw
+Concept Basics,Basic Mathematics,Easy,#,concepts/basic-maths.md,https://youtube.com/basic-maths
+Concept Basics,Prime Numbers,Easy,#,concepts/prime-numbers.md,https://youtube.com/prime
+Concept Basics,Array Operations,Easy,#,concepts/array-ops.md,https://youtube.com/array-basics
+Concept Basics,Array Manipulation,Easy,#,concepts/array-manipulation.md,https://youtube.com/array-manip
+Concept Basics,Hashing Introduction,Easy,#,concepts/hashing-intro.md,https://youtube.com/hashing
+Concept Basics,Hash Tables,Medium,#,concepts/hash-tables.md,https://youtube.com/hash-tables
+Concept Basics,String Operations,Easy,#,concepts/string-ops.md,https://youtube.com/string-basics
+Concept Basics,String Methods,Easy,#,concepts/string-methods.md,https://youtube.com/string-methods
+Concept Basics,Recursion Basics,Medium,#,concepts/recursion-basics.md,https://youtube.com/recursion
+Concept Basics,Recursive Problems,Medium,#,concepts/recursion-problems.md,https://youtube.com/re
+Sorting Algorithms,Selection Sort,Easy,#,sorting/selection-sort.md,https://youtube.com/s
+Sorting Algorithms,Bubble Sort,Easy,#,sorting/bubble-sort.md,https://youtube.com/
+Sorting Algorithms,Insertion Sort,Easy,#,sorting/insertion-sort.md,https://youtube.com
+Sorting Algorithms,Merge Sort,Medium,#,sorting/merge-sort.md,https://youtube.com/
+Sorting Algorithms,Quick Sort,Medium,#,sorting/quick-sort.md,https://youtube.com/
+Sorting Algorithms,Heap Sort,Hard,#,sorting/heap-sort.md,https://youtube.com/
